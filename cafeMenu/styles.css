@@ -1,0 +1,111 @@
+
+body {
+    /* setting background image with an image of coffee beans */
+  background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+  font-family: sans-serif;
+  /* to give some internal space to our body we are adding padding from all 4 directions */
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  /* h1 has some margin by default which was causing more space between h1 and top so set it 0 
+  to remove the default margin */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.established {
+  font-style: italic;
+}
+
+h1, h2, p {
+    /* align text to the center of its container  */
+  text-align: center;
+}
+
+.menu {
+    /* making menu container to take 80% of width of its parent container that is body */
+  width: 80%;
+  background-color: burlywood;
+  /* margin-left:auto and margin-right:auto; sets it to at center of its parent container */
+  margin-left: auto;
+  margin-right: auto;
+  /* giving some internal space to the menu container */
+  padding: 20px;
+
+  /* when the menu container is shrunk too much then some of the content inside it go on next 
+  line or misbehave so set max-width so that it always maintains this max-width */
+  max-width: 500px;
+}
+
+img {
+    /* img is inline so makint it block to make it to the center using auto margins */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:-25px;
+}
+
+hr {
+  height: 2px;
+  background-color: brown;
+  border-color: brown;
+}
+
+.bottom-line {
+  margin-top: 25px;
+}
+
+h1, h2 {
+    /* setting font family to Impact if Impact is not present then we have a fallback family 
+    serif means if Impact is not present in any browser or device serif will be applied */
+  font-family: Impact, serif;
+}
+
+.item p {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.flavor, .dessert {
+  text-align: left;
+  width: 75%;
+}
+
+.price {
+  text-align: right;
+  width: 25%;
+}
+
+/* FOOTER */
+
+footer {
+  font-size: 14px;
+}
+
+.address {
+  margin-bottom: 5px;
+}
+
+a {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: brown;
+}
+
+a:active {
+  color: brown;
+}
