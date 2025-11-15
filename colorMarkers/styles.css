@@ -1,0 +1,187 @@
+h1 {
+  text-align: center;
+}
+
+/* There are two main color models: the additive RGB (red, green, blue) model used in 
+electronic devices, and the subtractive CMYK (cyan, magenta, yellow, black) model used in print. */
+.container{
+  background-color:rgb(255,255,255);
+  padding: 10px 0;
+}
+
+.marker {
+    /* Earlier when we set the background-color so it was not visible because there is no 
+    height to the dive by default */
+    /* background-color:red; */
+
+  /* set width and height to make it visible. */
+  width: 200px;
+  height: 25px;
+  margin: 10px auto;
+}
+
+/* A color wheel is a circle where similar colors, or hues, are near each other, and different 
+ones are further apart. For example, pure red is between the hues rose and orange.
+
+Two colors that are opposite from each other on the color wheel are called complementary colors.
+ If two complementary colors are combined, they produce gray. But when they are placed side-by-side, 
+ these colors produce strong visual contrast and appear brighter. */
+
+ /* Notice that the red and cyan colors are very bright right next to each other. 
+ This contrast can be distracting if it's overused on a website, and can make text hard to read 
+ if it's placed on a complementary-colored background.
+
+It's better practice to choose one color as the dominant color, and use its complementary color 
+as an accent to bring attention to certain content on the page */
+
+/* Notice how your eyes are naturally drawn to the red color? When designing a 
+site, you can use this effect to draw attention to important headings, buttons, or links.
+
+There are several other important color combinations outside of complementary colors, but 
+you'll learn those a bit later. */
+
+/* Hexadecimal Color Method */
+
+/* A very common way to apply color to an element with CSS is with hexadecimal or hex values. 
+While hex values sound complicated, they're really just another form of RGB values.
+
+Hex color values start with a # character and take six characters from 0-9 and A-F. 
+The first pair of characters represent red, the second pair represent green, and the third pair 
+represent blue. For example, #4B5320. 
+green color:#00FF00;
+*/
+
+/* You may already be familiar with decimal, or base 10 values, which go from 0 - 9. Hexadecimal,
+ or base 16 values, go from 0 - 9, then A - F: 
+  With hex colors, 00 is 0% of that color, and FF is 100%. So #00FF00 translates to 0% red, 
+  100% green, and 0% blue, and is the same as rgb(0, 255, 0).
+ */
+
+ /* HSL Color Method */
+
+ /* The HSL color model, or hue, saturation, and lightness, is another way to represent colors.
+
+The CSS hsl function accepts 3 values: a number from 0 to 360 for hue, a percentage from 0 to 
+100 for saturation, and a percentage from 0 to 100 for lightness.
+
+If you imagine a color wheel, the hue red is at 0 degrees, green is at 120 degrees, and blue is 
+at 240 degrees.
+
+Saturation is the intensity of a color from 0%, or gray, to 100% for pure color. You must add 
+the percent sign % to the saturation and lightness values.
+
+Lightness is how bright a color appears, from 0%, or complete black, to 100%, complete white, 
+with 50% being neutral. */
+
+/* You've learned a few ways to set flat colors in CSS, but you can also use a color transition, 
+or gradient, on an element.
+
+A gradient is when one color transitions into another. The CSS linear-gradient function lets 
+you control the direction of the transition along a line, and which colors are used.
+
+One thing to remember is that the linear-gradient function actually creates an image element, 
+and is usually paired with the background property which can accept an image as a value. */
+
+/* Linear Gradient */
+
+/* The linear-gradient function is very flexible -- here is the basic syntax you'll use in this 
+tutorial:
+linear-gradient(gradientDirection, color1, color2, ...);
+
+Color-stops allow you to fine-tune where colors are placed along the gradient line. They are a 
+length unit like px or percentages that follow a color in the linear-gradient function.
+
+For example, in this red-black gradient, the transition from red to black takes place at the 
+90% point along the gradient line, so red takes up most of the available space:
+
+linear-gradient(90deg, red 90%, black);
+
+ */
+
+/* Opacity */
+
+/* Opacity describes how opaque, or non-transparent, something is. For example, a solid wall is 
+opaque, and no light can pass through. But a drinking glass is much more transparent, and you 
+can see through the glass to the other side.
+
+With the CSS opacity property, you can control how opaque or transparent an element is. With 
+the value 0, or 0%, the element will be completely transparent, and at 1.0, or 100%, the element
+ will be completely opaque like it is by default.
+ Another way to set the opacity for an element is with the alpha channel. Similar to the opacity
+  property, the alpha channel controls how transparent or opaque a color is.
+
+You've already set sleeve's opacity with a named color and the opacity property, but you can 
+add an alpha channel to the other CSS color properties.
+
+You're already familiar with using the rgb function to set colors. To add an alpha channel to 
+an rgb color, use the rgba function instead.
+
+The rgba function works just like the rgb function, but takes one more number from 0 to 1.0 for 
+the alpha
+  */
+
+  /* Box Shadow */
+  /* The box-shadow property lets you apply one or more shadows around an element. Here is 
+  basic syntax: 
+  box-shadow: offsetX offsetY color;
+  Here's how the offsetX and offsetY values work:
+
+both offsetX and offsetY accept number values in px and other CSS units
+a positive offsetX value moves the shadow right and a negative value moves it left
+a positive offsetY value moves the shadow down and a negative value moves it up
+if you want a value of zero (0) for any or both offsetX and offsetY, you don't 
+need to add a unit. Every browser understands that zero means no change.
+The height and width of the shadow is determined by the height and width of the element it's 
+applied to. You can also use an optional spreadRadius value to spread out the reach of the 
+shadow.
+  */
+
+
+/* .two {
+   green color wth rgb(0,255,0) gives very intense and bright than using green word, 
+  because when we use green word for color green it actually sets the values to 127 not 255 
+
+  background-color: rgb(0, 255, 0);
+}
+*/
+
+.cap {
+  width: 60px;
+  height: 25px;
+}
+
+.sleeve {
+  width: 110px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-left: 10px double rgba(0, 0, 0, 0.75);
+}
+
+.cap, .sleeve {
+  display: inline-block;
+}
+
+.red {
+  background: linear-gradient(rgb(122, 74, 14), rgb(245, 62, 113), rgb(162, 27, 27));
+  box-shadow: 0 0 20px 0 rgba(83, 14, 14, 0.8);
+}
+
+.green {
+  background: linear-gradient(#55680D, #71F53E, #116C31);
+  box-shadow: 0 0 20px 0 #3B7E20CC;
+}
+.sleeve {
+  width: 110px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* border-left-width: 10px;
+  border-left-style: solid;
+  border-left-color: black; */
+  border-left:10px double black;
+}
+
+.blue {
+  background: linear-gradient(hsl(186, 76%, 16%), hsl(223, 90%, 60%), hsl(240, 56%, 42%));
+  box-shadow: 0 0 20px 0 hsla(223,59%,31%,0.8);
+}
+
