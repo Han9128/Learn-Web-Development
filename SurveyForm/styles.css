@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width:100%;
+    /* height:100vh; */
+    margin:0;
+    /* background-color: #acacb4; */
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    background-image: url(./images/lukas-blazek-mcSDtbWXUZU-unsplash.jpg);
+    background-color: rgba(0,0,0,0.8);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: darken;
+}
+
+h1,p{
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+p{
+    margin-bottom: 2rem;
+    font-family: 'Poppins',sans-serif;
+    font-style: italic;
+}
+
+#survey-form{
+    width: 60vw;
+    margin: 20px auto;
+    max-width: 600px;
+    min-width: 400px;
+    background-color: hsl(240, 30%, 15%);
+    opacity: 0.85;
+    color: #ffff;
+    padding: 2em;
+    border-radius: 20px;
+}
+
+fieldset{
+    /* background-color: red; */
+    border: none;
+}
+
+label{
+    /* background-color: red; */
+    display: block;
+    margin: 1.5rem 0 0 0;
+}
+
+input,
+select,
+textarea{
+    width: 100%;
+    margin:10px 0 0 0;
+    min-height: 2.3em;
+    padding: 0.3em 0 0.3em 0.8em;
+    border-radius: 6px;
+}
+
+select{
+    min-height: 2.8em;
+    padding: 0.3em 0 0.3em 0.8em;
+    border-radius: 6px;
+}
+.inline{
+    width: unset;
+    vertical-align: middle;
+    margin: 0 0.5em 0 0;
+    min-height: 0;
+}
+.inline-label{
+    margin-top: 0.5rem;
+}
+input,textarea{
+    border: 1px solid #1b1b32;
+}
+
+input[type="submit"]{
+    display: block;
+    width: 100%;
+    margin: 1.5rem auto;
+    height: 4em;
+    background-color: rgba(0,200,0,0.7);
+    text-align: center;
+    color: #ffff;
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+}
