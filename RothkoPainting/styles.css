@@ -1,0 +1,129 @@
+/* In the CSS box model, every HTML element is treated as a box with four areas.
+
+Imagine you receive a box from your favorite online retailer -- the content is the item in the box, or in our 
+case, a header, paragraph, or image element. */
+
+/* The content is surrounded by a space called padding, similar to how bubble wrap separates an item from the box around it.
+
+Think of the border like the cardboard box your item was shipped in. */
+
+/* Margin is the area outside of the box, and can be used to control the space between other boxes or elements.
+
+Here the bottom element has a larger top margin, pushing it further down the page.
+
+Now that you understand the CSS box model, let's get started on the Rothko painting. */
+
+.canvas {
+  /* by default div takes full available width; here we fix it to 500px so it aligns with the page layout */
+  width: 500px;
+
+  /* an element has zero height by default unless it has content or an explicit height; make it visible */
+  height: 600px;
+
+  /* background-color paints the element's background. Use hex, rgb, or named colors. */
+  background-color: #4d0f00;
+
+  /* when content is larger than the box, overflow controls what happens (hidden clips the overflow). */
+  overflow: hidden;
+
+  /* filter applies graphical effects (not layout). blur(npx) blurs the element's rendered content by n pixels. */
+  filter: blur(2px);
+}
+
+.frame {
+  /* border adds a line around the element. here 50px solid black creates a 50px wide border. */
+  border: 50px solid black;
+
+  /* width applies to the element's content-box by default (box-sizing: content-box). 
+     Note: border and padding will increase the element's total outer size unless using border-box. */
+  width: 500px;
+
+  /* padding creates inner space between the border and content.
+     Padding is part of the element itself (it does not apply to the parent or child).
+     With default box-sizing the padding increases the total rendered size. */
+  padding: 50px;
+
+  /* margin creates space outside the element; '20px auto' gives 20px top/bottom and centers horizontally. */
+  margin: 20px auto;
+}
+
+.one {
+  /* fixed width/height for this inner block. width here is relative to the containing block. */
+  width: 425px;
+  height: 150px;
+
+  /* background-color fills the element's background area. */
+  background-color: #efb762;
+
+  /* margin: 20px auto — creates 20px top/bottom space and centers horizontally (auto left/right). */
+  margin: 20px auto;
+
+  /* box-shadow: offset-x offset-y blur-radius spread-radius color (spread and color are optional).
+     Example 0 0 3px 3px #efb762:
+       - offset-x: 0 (no horizontal shift)
+       - offset-y: 0 (no vertical shift)
+       - blur-radius: 3px (how blurry the shadow is)
+       - spread-radius: 3px (expands/shrinks shadow size)
+       - color: #efb762 (shadow color)
+     A shadow with 0 offsets and small blur/spread creates a glow effect.
+     (You can add 'inset' as the first value to make the shadow inside the box.) */
+  box-shadow: 0 0 3px 3px #efb762;
+
+  /* border-radius rounds corners; can be 1..4 values and can specify elliptical radii with a slash. */
+  border-radius: 9px;
+
+  /* transform applies a visual transform (does not affect document flow).
+     rotate(-0.6deg) rotates the element by -0.6 degrees around the transform-origin (center by default). */
+  transform: rotate(-0.6deg);
+}
+
+.two {
+  width: 475px;
+  height: 200px;
+  background-color: #8f0401;
+
+  /* shorthand margin: top right/left bottom.
+     margin: 0 auto 20px means:
+       - margin-top: 0
+       - margin-left/right: auto (center horizontally)
+       - margin-bottom: 20px (space under this element) */
+  margin: 0 auto 20px;
+
+  /* glow-like shadow similar to .one but with different color & values */
+  box-shadow: 0 0 3px 3px #8f0401;
+
+  /* border-radius accepts one to four values — here it uses elliptical corner radii shorthand. */
+  border-radius: 8px 10px;
+
+  /* small rotation to tilt the rectangle visually. */
+  transform: rotate(0.4deg);
+}
+
+.one, .two {
+  /* blur the element's rendering slightly — affects visuals, not layout.
+     filter creates a stacking context for some effects, which can affect compositing and performance. */
+  filter: blur(1px);
+}
+
+.three {
+  /* percentage widths are relative to the containing block's width */
+  width: 91%;
+
+  /* percentage heights are relative to the containing block's height **only if** the parent has an explicit height.
+     If the parent has no explicit height, percentage height may not behave as expected. */
+  height: 28%;
+
+  background-color: #b20403;
+  margin: auto;
+
+  /* stronger blur and glow */
+  filter: blur(2px);
+  box-shadow: 0 0 5px 5px #b20403;
+
+  /* four values for border-radius control the radii of top-left, top-right, bottom-right, bottom-left corners. */
+  border-radius: 30px 25px 60px 12px;
+
+  transform: rotate(-0.2deg);
+}
+
+
