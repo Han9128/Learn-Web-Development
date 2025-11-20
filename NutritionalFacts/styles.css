@@ -1,0 +1,132 @@
+/* Reset box model so padding and borders are included in element width/height */
+* {
+  box-sizing: border-box;
+}
+
+/* Sets base font size for rem units */
+html {
+  font-size: 16px;
+}
+
+/* Applies the imported Open Sans font to the whole page */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* === Main label box === */
+.label {
+  border: 2px solid black;       /* Creates black outline for the label */
+  width: 270px;                  /* Fixes label width */
+  margin: 20px auto;             /* Centers it horizontally with auto margins */
+  padding: 0 7px;                /* Adds inner spacing left/right */
+}
+
+/* === Header styling === */
+header h1 {
+  text-align: center;            /* Centers the "Nutrition Facts" heading */
+  margin: -4px 0;                /* Small vertical adjustment to fit design */
+  letter-spacing: 0.15px;        /* Slight spacing between letters */
+}
+
+/* === Paragraph defaults === */
+p {
+  margin: 0;                     /* Removes default paragraph margin */
+  display: flex;                 /* Makes every <p> a flex container */
+  justify-content: space-between;/* Pushes child elements to opposite ends */
+}
+
+/* === Divider line (gray border between sections) === */
+.divider {
+  border-bottom: 1px solid #888989;
+  margin: 2px 0;                 /* Small vertical space around each divider */
+}
+
+/* === Bold text helper class === */
+.bold {
+  font-weight: 800;              /* Heavier text for emphasis */
+}
+
+/* === Black divider bars of different sizes === */
+.large {
+  height: 10px;                  /* Taller black bar */
+}
+
+.large, .medium {
+  background-color: black;       /* Black fill for divider */
+  border: 0;                     /* Removes gray border for these bars */
+}
+
+.medium {
+  height: 5px;                   /* Medium-sized bar */
+}
+
+/* === Smaller text helper class === */
+.small-text {
+  font-size: 0.85rem;            /* Slightly smaller text for details */
+}
+
+/* === Calories section layout === */
+.calories-info {
+  display: flex;                 /* Arrange left and right parts horizontally */
+  justify-content: space-between;/* Pushes content to opposite ends */
+  align-items: flex-end;         /* Aligns text vertically at bottom */
+}
+
+/* Removes extra space around calories heading */
+.calories-info h2 {
+  margin: 0;
+}
+
+/* Styles the “Calories” text inside left container */
+.left-container p {
+  margin: -5px -2px;             /* Adjusts placement to fit nicely under heading */
+  font-size: 2em;                /* Makes "Calories" large */
+  font-weight: 700;              /* Semi-bold */
+}
+
+/* Styles the number "230" */
+.calories-info span {
+  margin: -7px -2px;             /* Aligns vertically with text on left */
+  font-size: 2.4em;              /* Makes number large */
+  font-weight: 700;
+}
+
+/* === Aligns right text in daily value section === */
+.right {
+  justify-content: flex-end;     /* Moves inner content (text) to the right side */
+}
+
+
+/* === Indentation Helpers === */
+
+/* Adds one level of left margin (used to visually nest or offset text) */
+.indent {
+  margin-left: 1em; /* 1em = roughly the width of one character "M" */
+}
+
+/* Adds two levels of left margin (further indentation for sub-items) */
+.double-indent {
+  margin-left: 2em; /* twice as much space as .indent */
+}
+
+/* === Daily Value Section Styling === */
+
+/* 
+Targets all <p> inside .daily-value 
+EXCEPT those that have the class .no-divider.
+Adds a thin gray line below each for separation.
+*/
+.daily-value p:not(.no-divider) {
+  border-bottom: 1px solid #888989;
+}
+
+/* === Footnote / Small Note Styling === */
+
+/*
+Used for tiny disclaimer or footnote text 
+(e.g., "*The % Daily Value tells you how much a nutrient...")
+*/
+.note {
+  font-size: 0.6rem; /* very small text */
+  margin: 5px 0;     /* small vertical spacing above and below */
+}
