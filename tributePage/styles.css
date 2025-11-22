@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+}
+
+main{
+    background-color: rgb(240, 240, 240);
+    margin: 20px 5px;
+}
+
+
+
+.header{
+    padding: 2rem 0.5rem;
+    
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+p{
+    font-family: 'Source Sans 3', sans-serif;
+}
+h1, .header p{
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+img{
+  display:block;
+}
+
+#image{
+  max-width:100%;
+  /* height:auto; */
+  margin:0 auto;
+} 
+
+#img-caption{
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#img-div{
+    margin-top: 0.5em;
+    background-color: white;
+}
+
+#tribute-info{
+    /* border: 2px solid black; */
+    display: block;
+    width: 25vw;
+    margin:30px auto;
+    padding: 1.5rem 0.5rem;
+}
+
+h3{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+li{
+    margin-bottom: 15px;
+}
+
+.quote{
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.learn-more{
+    display: block;
+    width: 40vw;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+a{
+    color:rgb(79, 67, 67);
+    text-decoration: none;
+}
