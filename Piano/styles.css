@@ -1,0 +1,126 @@
+/* Apply border-box sizing so padding and border are included in total width and height */
+html {
+  box-sizing: border-box;
+}
+
+/* Make sure all elements and pseudo-elements use the same box-sizing model as <html> */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* The main green container that holds the piano */
+#piano {
+  background-color: #00471b;   /* dark green background color of the piano body */
+  width: 992px;                /* fixed width of the piano */
+  height: 290px;               /* fixed height of the piano */
+  margin: 80px auto;           /* centers the piano horizontally and adds space on top/bottom */
+  padding: 90px 20px 0 20px;   /* top padding pushes the keys down, side padding adds spacing */
+  position: relative;          /* creates a positioning context for absolutely positioned children */
+  border-radius: 10px;         /* rounds the corners of the piano */
+}
+
+/* The black rectangle area that contains all piano keys */
+.keys {
+  background-color: #040404;   /* nearly black background (area behind white keys) */
+  width: 949px;                /* width slightly smaller than #piano to fit inside its padding */
+  height: 180px;               /* height of the key area */
+  padding-left: 2px;           /* small left padding to adjust alignment */
+  overflow: hidden;            /* hides anything overflowing (also helps contain floated keys) */
+}
+
+/* The white piano keys */
+.key {
+  background-color: #ffffff;   /* white key color */
+  position: relative;          /* needed so ::after (black key) can be positioned absolutely inside */
+  width: 41px;                 /* width of each white key */
+  height: 175px;               /* height of each white key */
+  margin: 2px;                 /* small gap between keys */
+  float: left;                 /* makes block-level keys line up side by side horizontally */
+  border-radius: 0 0 3px 3px;  /* slightly rounded bottom corners */
+}
+
+
+
+/* This will target the elements with the class key black--key, and select the pseudo-element after these 
+elements in the HTML. */
+
+/* This will make the pseudo-elements empty.
+
+The content property is used to set or override the content of the element. By default, the pseudo-elements 
+created by the ::before and ::after pseudo-selectors are empty, and the elements will not be rendered to the 
+page. Setting the content property to an empty string "" will ensure the element is rendered to the page while 
+still being empty. */
+
+
+/* 
+Pseudo-element that visually creates a black key on top of certain white keys.
+It is drawn *inside* the element with class "key black--key".
+*/
+.key.black--key::after {
+  background-color: #1d1e22;   /* dark gray/black color of the black keys */
+  content: "";                 /* required to make the pseudo-element appear */
+  position: absolute;          /* position it relative to its parent (.key) */
+  left: -18px;                 /* moves it left so it overlaps the previous white key */
+  width: 32px;                 /* width of each black key */
+  height: 100px;               /* height of each black key */
+  border-radius: 0 0 3px 3px;  /* rounded bottom corners */
+  /* (optional improvement: add z-index: 2 to ensure black keys appear above white keys) */
+}
+
+/* The freeCodeCamp logo inside the piano */
+.logo {
+  width: 200px;                /* size of the logo image */
+  position: absolute;          /* position relative to the #piano container */
+  top: 23px;                   /* distance from the top edge of the piano */
+  /* left is not defined, so it defaults to left: 0 (aligned to left edge) */
+}
+
+/* The @media at-rule, also known as a media query, is used to conditionally apply CSS. Media queries are 
+commonly used to apply CSS based on the viewport width using the max-width and min-width properties.
+
+In the below example the padding is applied to the .card class when the viewport is 960px wide and below.
+
+Example Code
+@media (max-width: 960px) {
+  .card {
+    padding: 2rem;
+  }
+} */
+
+/* ---------- Responsive design section ---------- */
+
+/* For screens 768px wide or less (e.g., tablets and phones) */
+@media (max-width: 768px) {
+  #piano {
+    width: 358px;              /* shrink piano width */
+  }
+
+  .keys {
+    width: 318px;              /* shrink keys section accordingly */
+  }
+
+  .logo {
+    width: 150px;              /* make the logo smaller */
+  }
+}
+
+
+
+/* For medium screens between 769px and 1199px */
+@media (max-width: 1199px) and (min-width: 769px) {
+  #piano {
+    width: 675px;              /* medium size piano */
+  }
+
+  .keys {
+    width: 633px;              /* medium size key area */
+  }
+}
+
+.key {
+  transition: transform 0.08s ease;
+}
+.key.active {
+  transform: translateY(2px);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
