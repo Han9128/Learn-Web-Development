@@ -1,0 +1,410 @@
+
+/* setting global variables */
+:root {
+  --building-color1: #aa80ff;
+  --building-color2: #66cc99;
+  --building-color3: #cc6699;
+  --building-color4: #538cc6;
+  --window-color1: #bb99ff;
+  --window-color2: #8cd9b3;
+  --window-color3: #d98cb3;
+  --window-color4: #8cb3d9;
+}
+
+/* setting box model as border-box so that padding and border included in width */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* by default body height is the height of its content so setting it 100vh to make it take whole screen height */
+  height: 100vh;
+  margin: 0;
+  /* some buildings are tall that may go beyond the screen height so setting this make any overflow invisible */
+  overflow: hidden;
+}
+
+.background-buildings, .foreground-buildings {
+  width: 100%;
+  height: 100%;
+  /* display flex and its property affect direct children of the container not the container itself */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  /* position absolute takes the layout out of normal flow and allow them to sit on top of same screen area
+  otherwise the two buildings layout will push each other vertically down and break the layout */
+  position: absolute;
+  /* to make them start from the top of the page we use top:0, note: when we set position absolute and dont set 
+  top,left,right,bottom property then the element is in its previous position by default, it is taken out of normal flow but 
+  not setting those properties makes it stay at past position only. the elements does not look toubhing top 
+  because we have set flex-end above which makes it to stick to the bottom and the top:0 does not affect its 
+  children it affects only the element on which it is applied*/
+  top: 0;
+}
+
+.building-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.window-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* • radial-gradient(...) → Creates a circular gradient that spreads outward.
+  • circle → Forces the gradient shape to be a perfect circle.
+  • closest-corner → The gradient expands until it reaches the nearest corner 
+                     of the element (prevents cutoff).
+
+  • at 15% 15% → Sets the center of the gradient:
+        15% from the left, 15% from the top.
+        This places the “sun” in the upper-left area of the screen.
+
+  COLOR STOPS:
+  • #ffcf33 → Inner core color (bright yellow sun).
+  • #ffcf33 20% → Keep this same yellow solid until 20%.
+                  (Creates a solid circle — no gradient yet.)
+  • #ffff66 21% → Starts the outer glow just outside the sun.
+                  The 20% → 21% jump creates a soft boundary.
+  • #bbeeff 100% → Sky color after the glow, filling the rest of the container. */
+.sky {
+  background: radial-gradient(
+      closest-corner circle at 15% 15%,
+      #ffcf33,
+      #ffcf33 20%,
+      #ffff66 21%,
+      #bbeeff 100%
+    );
+}
+
+/* BACKGROUND BUILDINGS - "bb" stands for "background building" */
+.bb1 {
+  width: 10%;
+  height: 70%;
+}
+
+.bb1a {
+  width: 70%;
+}
+  
+.bb1b {
+  width: 80%;
+}
+  
+.bb1c {
+  width: 90%;
+}
+
+/* Gradients in CSS are a way to transition between colors across the distance of an element. They are applied 
+to the background property and the syntax looks like this:
+
+Example Code
+gradient-type(
+  color1,
+  color2
+);
+In the example, color1 is solid at the top, color2 is solid at the bottom, and in between it transitions evenly 
+from one to the next. 
+
+You can specify where you want a gradient transition to complete by adding it to the color like this:
+
+Example Code
+gradient-type(
+  color1,
+  color2 20%,
+  color3
+);
+Here, it will transition from color1 to color2 between 0% and 20% of the element and then transition to color3 
+for the rest.*/
+
+/* Gradient transitions often gradually change from one color to another. When a more abrupt change is required,
+ the transition can be made with a hard stop like this:
+
+Example Code
+linear-gradient(
+  var(--first-color) 0%,
+  var(--first-color) 40%,
+  var(--second-color) 40%,
+  var(--second-color) 80%
+); 
+
+So far, all the gradients you created have gone from top to bottom, that's the default direction. 
+You can specify another direction by adding it before your colors like this:
+
+Example Code
+gradient-type(
+  direction,
+  color1,
+  color2
+);
+*/
+
+/* 
+  linear-gradient() creates a smooth transition between colors.
+  
+  Syntax used here:
+    linear-gradient(color1 50%, color2)
+
+  Explanation:
+  - No direction is specified, so the gradient goes from top → bottom by default.
+  - "var(--building-color1) 50%" means the first color will fill the top 50% of the element.
+  - After that, it transitions into "var(--window-color1)" which fills the remaining space.
+
+  So the top half of the .bb1d box is building-color1,
+  and the bottom half is window-color1.
+*/
+
+.bb1d {
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(
+      var(--building-color1) 50%,
+      var(--window-color1)
+    );
+}
+
+.bb1-window {
+  height: 10%;
+  background: linear-gradient(
+      var(--building-color1),
+      var(--window-color1)
+    );
+}
+
+.bb2 {
+  width: 10%;
+  height: 50%;
+}
+
+.bb2a {
+  border-bottom: 5vh solid var(--building-color2);
+  border-left: 5vw solid transparent;
+  border-right: 5vw solid transparent;
+}
+
+.bb2b {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 6%,
+      var(--window-color2) 6%,
+      var(--window-color2) 9%
+    );
+}
+
+.bb3 {
+  width: 10%;
+  height: 55%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color3),
+      var(--building-color3),
+      var(--window-color3) 15%
+    );
+}
+
+.bb4 {
+  width: 11%;
+  height: 58%;
+}
+
+.bb4a {
+  width: 3%;
+  height: 10%;
+  background-color: var(--building-color4);
+}
+
+.bb4b {
+  width: 80%;
+  height: 5%;
+  background-color: var(--building-color4);
+}
+  
+.bb4c {
+  width: 100%;
+  height: 85%;
+  background-color: var(--building-color4);
+}
+
+.bb4-window {
+  width: 18%;
+  height: 90%;
+  background-color: var(--window-color4);
+}
+
+/* FOREGROUND BUILDINGS - "fb" stands for "foreground building" */
+.fb1 {
+  width: 10%;
+  height: 60%;
+}
+
+.fb1a {
+  border-bottom: 7vh solid var(--building-color4);
+  border-left: 2vw solid transparent;
+  border-right: 2vw solid transparent;
+}
+
+.fb1b {
+  width: 60%;
+  height: 10%;
+  background-color: var(--building-color4);
+}
+  
+.fb1c {
+  width: 100%;
+  height: 80%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color4),
+      var(--building-color4) 10%,
+      transparent 10%,
+      transparent 15%
+    ),
+    repeating-linear-gradient(
+      var(--building-color4),
+      var(--building-color4) 10%,
+      var(--window-color4) 10%,
+      var(--window-color4) 90%
+    );
+}
+
+.fb2 {
+  width: 10%;
+  height: 40%;
+}
+
+.fb2a {
+  width: 100%;
+  border-bottom: 10vh solid var(--building-color3);
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+}
+
+.fb2b {
+  width: 100%;
+  height: 75%;
+  background-color: var(--building-color3);
+}
+
+.fb2-window {
+  width: 22%;
+  height: 100%;
+  background-color: var(--window-color3);
+}
+
+.fb3 {
+  width: 10%;
+  height: 35%;
+}
+  
+.fb3a {
+  width: 80%;
+  height: 15%;
+  background-color: var(--building-color1);
+}
+  
+.fb3b {
+  width: 100%;
+  height: 35%;
+  background-color: var(--building-color1);
+}
+
+.fb3-window {
+  width: 25%;
+  height: 80%;
+  background-color: var(--window-color1);
+}
+
+.fb4 {
+  width: 8%;
+  height: 45%;
+  position: relative;
+  left: 10%;
+}
+
+.fb4a {
+  border-top: 5vh solid transparent;
+  border-left: 8vw solid var(--building-color1);
+}
+
+.fb4b {
+  width: 100%;
+  height: 89%;
+  background-color: var(--building-color1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fb4-window {
+  width: 30%;
+  height: 10%;
+  border-radius: 50%;
+  background-color: var(--window-color1);
+  margin: 10%;
+}
+
+.fb5 {
+  width: 10%;
+  height: 33%;
+  position: relative;
+  right: 10%;
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 5%,
+      transparent 5%,
+      transparent 10%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--building-color2),
+      var(--building-color2) 12%,
+      var(--window-color2) 12%,
+      var(--window-color2) 44%
+    );
+}
+
+.fb6 {
+  width: 9%;
+  height: 38%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color3),
+      var(--building-color3) 10%,
+      transparent 10%,
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      var(--building-color3),
+      var(--building-color3) 10%,
+      var(--window-color3) 10%,
+      var(--window-color3) 30%
+    );
+}
+
+@media (max-width: 1000px) {
+    :root {
+    --building-color1: #000;
+    --building-color2: #000;
+    --building-color3: #000;
+    --building-color4: #000;
+    --window-color1: black;
+    --window-color2: #777;
+    --window-color3: #777;
+    --window-color4: #777;
+  }
+
+    .sky {
+    background: radial-gradient(
+        closest-corner circle at 15% 15%,
+        #ccc,
+        #ccc 20%,
+        #445 21%,
+        #223 100%
+      );
+  }
+}
